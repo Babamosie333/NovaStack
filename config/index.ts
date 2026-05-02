@@ -4,9 +4,11 @@ export const links = {
   sourceCode: "https://github.com/babamosie333",
   ownerName: "Vikram Singh",
   ownerEmail: "vikramsingh14052006@gmail.com",
+  siteUrl: "https://novastack.vercel.app",
 } as const;
 
 export const siteConfig: Metadata = {
+  metadataBase: new URL(links.siteUrl),
   title: `${links.ownerName}'s Portfolio`,
   description: "Modern & Minimalist Next.js Portfolio.",
   keywords: [
@@ -49,8 +51,32 @@ export const siteConfig: Metadata = {
     "html",
     "css",
   ] as Array<string>,
-  authors: {
-    name: links.ownerName,
-    url: "https://github.com/babamosie333",
+  authors: [
+    {
+      name: links.ownerName,
+      url: "https://github.com/babamosie333",
+    },
+  ],
+  openGraph: {
+    title: `${links.ownerName}'s Portfolio`,
+    description: "Modern & Minimalist Next.js Portfolio.",
+    url: links.siteUrl,
+    siteName: `${links.ownerName}'s Portfolio`,
+    images: [
+      {
+        url: "app/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${links.ownerName}'s Portfolio Preview`,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${links.ownerName}'s Portfolio`,
+    description: "Modern & Minimalist Next.js Portfolio.",
+    images: ["app/opengraph-image.png"],
   },
 } as const;
